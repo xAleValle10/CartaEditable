@@ -5,12 +5,12 @@ import { DeleteCategoryButton } from "./DeleteCategoryButton";
 import { LinkAgregarSubCategoria } from "./LinkAgregarSubCategoria";
 
 export const SubList = () => {
-  const { categorySubItems } = useContext(CategoryContext);
-  console.log("categorySubItems:", categorySubItems);
-  categorySubItems.sort((a, b) => a.posicion - b.posicion);
+  const { categoryItems } = useContext(CategoryContext);
+
+  categoryItems.sort((a, b) => a.posicion - b.posicion);
   return (
     <div>
-      {categorySubItems.map((item) => (
+      {categoryItems.map((item) => (
         <div key={item.id}>
           <h3>{item.nombre}</h3>
           <span className=" cursorhover material-symbols-outlined">add</span>
@@ -18,7 +18,6 @@ export const SubList = () => {
           <span className="material-symbols-outlined">publish</span>
           <span className="material-symbols-outlined">edit</span>
           <LinkAgregarSubCategoria />
-          <SubList />
         </div>
       ))}
     </div>

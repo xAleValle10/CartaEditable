@@ -7,11 +7,11 @@ import { SubList } from "./SubList";
 
 export const MenuList = () => {
   const { categoryItems } = useContext(CategoryContext);
-  // const [showSubList, setShowSubList] = useState(false);
-
-  //const handleAddClick = () => {
-  //  setShowSubList(!showSubList);
-  //};
+  const [showSubList, setShowSubList] = useState(false);
+  //console.log(categoryItems);
+  const handleAddClick = () => {
+    setShowSubList(!showSubList);
+  };
   return (
     <div>
       {categoryItems.map((item) => (
@@ -20,7 +20,7 @@ export const MenuList = () => {
           <h3>{item.nombre}</h3>
           <span
             className=" cursorhover material-symbols-outlined"
-            //onClick={handleAddClick}
+            onClick={handleAddClick}
           >
             add
           </span>
@@ -28,8 +28,7 @@ export const MenuList = () => {
           <span className="material-symbols-outlined">publish</span>
           <span className="material-symbols-outlined">edit</span>
           <LinkAgregarSubCategoria />
-          {/* {showSubList && } */}
-          <SubList />
+          {showSubList && <SubList />}
         </div>
       ))}
     </div>
